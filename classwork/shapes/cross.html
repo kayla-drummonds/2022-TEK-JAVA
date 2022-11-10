@@ -11,14 +11,31 @@
 
 <script>
     let string = "";
-    let inputHeight = "";
-    let inputWidth = "";
+    let inputSize = "";
 
-    inputHeight = prompt("Enter height:");
-    inputWidth = prompt("Enter width:");
+    inputSize = prompt("Enter size:");
 
-    for (let i = 0; i < inputHeight; i++) {
-        for (let j = 0; j < inputWidth; j++) {
+    let n = 5;
+    // Reversed pyramid pattern
+    for (let i = 0; i < n; i++) {
+        // printing spaces
+        for (let j = 0; j < i; j++) {
+            string += " ";
+        }
+        // printing star
+        for (let k = 0; k < (n - i) * 2 - 1; k++) {
+            string += "*";
+        }
+        string += "\n";
+    }
+    // pyramid pattern
+    for (let i = 2; i <= n; i++) {
+        // printing spaces
+        for (let j = n; j > i; j--) {
+            string += " ";
+        }
+        // printing star
+        for (let k = 0; k < i * 2 - 1; k++) {
             string += "*";
         }
         string += "\n";
