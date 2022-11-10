@@ -10,7 +10,7 @@
 </head>
 
 <script>
-    let string = "";
+    /* let string = "";
     let inputHeight = "";
     let inputWidth = "";
 
@@ -28,6 +28,20 @@
                 else {
                     string += " ";
                 }
+            }
+        }
+        string += "\n";
+    } */
+    n = 5;
+    let string = "";
+    for (let i = 1; i <= n; i++) {
+        // printing star
+        for (let j = 0; j < i; j++) {
+            if (j == 0 || j == i - 1) {
+                string += "*";
+            }
+            else {
+                string += " ";
             }
         }
         string += "\n";
