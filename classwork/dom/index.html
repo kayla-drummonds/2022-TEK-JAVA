@@ -6,11 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Javascript Demo 2</title>
+    <title>This is the Title</title>
+    <style>
+        .list-item {
+            color: green;
+        }
+
+        .list-item-bg {
+            background-color: aquamarine;
+        }
+
+        #page-title-css {
+            background-color: red;
+        }
+
+        .page-title-bg {
+            background-color: aquamarine;
+        }
+    </style>
 </head>
 
-<body>
-    <h1 id="header-title">Hello, world!</h1>
+
+<body class="p-2">
+    <h1 id="page-title" class="page-title-css">DOM Exercises</h1>
+    <ul name="unorderedList" custom-attr="customAttribute">
+        <li class="list-item" id="item1">Item 1</li>
+        <li class="list-item" id="item2">Item 2</li>
+        <li class="list-item">Item 3</li>
+        <li class="list-item">Item 3a</li>
+        <li class="list-item">Item 4</li>
+    </ul>
+    <form onsubmit="showEmail()">
+        <input type="text" name="email" title="email" id="emailId">
+        <button type="submit" title="submitEmail" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!--make another css class for page-title with the background color red-->
+    <!--add another button that when clicked will add or remove the page-title-css -->
+    <!--if page-title-css is present remove it, else add it-->
+    <script>
+        let unorderedList = document.getElementById('item1').parentElement;
+        console.log(unorderedList.getAttribute("name"));
+        console.log(unorderedList.getAttribute("custom-attr"));
+
+        console.log(document.title);
+        document.title = "This is a new title";
+        console.log(document.title);
+
+        let pageTitle = document.getElementById('page-title');
+        console.log(pageTitle);
+        console.log(pageTitle.innerHTML);
+        pageTitle.innerHTML = pageTitle.innerHTML + " added with JS";
+
+        const email = document.getElementById('emailId');
+        console.log(email);
+
+        var items = document.getElementsByClassName('list-item');
+        for (i in items) {
+            console.log(items[i].innerHTML);
+        }
+
+        document.getElementById('page-title').classList.add('page-title-bg');
+        pageTitle.classList.add('page-title-bg');
+
+        let ul = document.querySelector('ul');
+        // add a new node to the unordered list
+        var anotherListItem = document.createElement('li');
+        anotherListItem.textContent = "Item 5";
+        ul.appendChild(anotherListItem);
+        // remove the node item 2
+        var itemTwo = document.querySelector('#item2');
+        itemTwo.remove();
+        // when the button is clicked, console.log the value of the email input box
+        function showEmail() {
+            console.log(email.value);
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
