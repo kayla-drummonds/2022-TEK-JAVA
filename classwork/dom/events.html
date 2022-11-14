@@ -18,7 +18,9 @@
         <li id="delMe">Item 4</li>
         <li>Item 5</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="clickMe()">Click Me</button>
+    <button class="btn btn-primary" type="button" onclick="clickMe()">Using On Click</button>
+    <button id="event-handler" class="btn btn-primary" type="button">Using Event Handler</button>
+    <button id="mouse-over" class="btn btn-primary" type="button">Using Mouse Over</button>
     <script>
         function clickMe() {
             let list = document.getElementById("unordered-list");
@@ -26,6 +28,27 @@
             element.innerHTML = "New element";
             list.appendChild(element);
         }
+
+        function eventHandler() {
+            let list = document.getElementById("unordered-list");
+            let element = document.createElement("li");
+            element.innerHTML = "New element with Event Handler";
+            list.appendChild(element);
+        }
+
+        function mouseOverMe() {
+            let list = document.getElementById("unordered-list");
+            let element = document.createElement("li");
+            element.innerHTML = "New element with Mouse Over";
+            list.appendChild(element);
+        }
+
+        let eh = document.getElementById("event-handler");
+        eh.addEventListener('click', eventHandler);
+
+        let mo = document.getElementById("mouse-over");
+        mo.addEventListener('mouseover', mouseOverMe);
+
         let para = document.createElement("p");
         para.innerHTML = "This is a new paragraph";
         document.body.appendChild(para);
