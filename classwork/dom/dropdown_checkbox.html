@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Checkbox and Dropdown Demo</title>
+</head>
+
+<body class="p-2">
+
+    <form>
+        <form name="myForm">
+            <div class="row mb-2">
+                <label class="col-5 col-form-label" for="favoriteLocation">Favorite vacation location:</label>
+                <div class="col-7">
+                    <select class="form-select" id="vList" title="vList" onchange="myDropbox()">
+                        <option selected>---Choose Location---</option>
+                        <option value="1">Florida</option>
+                        <option value="2">New York</option>
+                        <option value="3">Hollywood</option>
+                        <option value="4">Texas</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-5">
+                    <div class="form-text">Your selected location site is:</div>
+                </div>
+                <div class="col-7">
+                    <input type="text" class="form-control form-control-sm" id="favorite" size="20"
+                        placeholder="Location" disabled readonly />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="smile" name="chk" id="smile"
+                            placeholder="none">
+                        <label class="form-check-label" for="smile">
+                            Smile
+                        </label>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="cry" name="chk" id="cry">
+                        <label class="form-check-label" for="cry">
+                            Cry
+                        </label>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="laugh" name="chk" id="laugh">
+                        <label class="form-check-label" for="laugh">
+                            Laugh
+                        </label>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="angry" name="chk" id="angry">
+                        <label class="form-check-label" for="angry">
+                            Angry
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <input type="button" onclick="selectCheck()" title="selectAll" value="Select All" />
+                </div>
+                <div class="col-6">
+                    <input type="button" onclick="deselectCheck()" title="deselectAll" value="Deselect All" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+    </form>
+    <script>
+        function myDropbox() {
+            let vList = document.getElementById("vList");
+            document.getElementById("favorite").value = vList.options[vList.selectedIndex].text;
+        }
+
+        function selectCheck() {
+            let chk = document.getElementsByName('chk');
+            for (i = 0; i < chk.length; i++) {
+                if (chk[i].type == 'checkbox') {
+                    chk[i].checked = true;
+                }
+            }
+        }
+
+        function deselectCheck() {
+            let chk = document.getElementsByName('chk');
+            for (i = 0; i < chk.length; i++) {
+                if (chk[i].type == 'checkbox') {
+                    chk[i].checked = false;
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+</body>
