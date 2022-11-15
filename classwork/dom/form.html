@@ -55,11 +55,11 @@
                 alert("Enter Last Name");
                 document.myForm.lastName.focus();
                 return false;
-            } else if (isNaN(document.myForm.phone.value) || document.myForm.phone.value == "") {
-                if (isNaN(document.myForm.phone.value)) {
-                    alert("Enter Phone Number in valid format");
-                } else if (document.myForm.phone.value == "") {
+            } else if (document.myForm.phone.value == "" || !document.myForm.phone.value.match(/[0-9]{3}[-\s\.]*[0-9]{3}\s*[0-9]{4}/gm)) {
+                if (document.myForm.phone.value == "") {
                     alert("Enter Phone Number");
+                } else if (!document.myForm.phone.value.match(/[0-9]{3}[-\s\.]*[0-9]{3}\s*[0-9]{4}/gm)) {
+                    alert("Enter valid phone number format");
                 }
                 document.myForm.phone.focus();
                 return false;
