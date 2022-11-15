@@ -30,6 +30,12 @@
                 <input type="phone" class="form-control" name="phone" placeholder="Phone Number" />
             </div>
         </div>
+        <div class="row">
+            <label class="col-4 col-form-label" for="email">Phone:</label>
+            <div class="col-8">
+                <input type="email" class="form-control" name="email" placeholder="Email" />
+            </div>
+        </div>
         <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
     <script>
@@ -47,6 +53,9 @@
         also put a red message under the input box giving an error message
 */
         function validate() {
+            let email = document.myForm.email.value;
+            atpos = email.indexOf("@");
+            dotpos = email.lastIndexOf(".");
             if (document.myForm.firstName.value == "") {
                 alert("Enter First Name");
                 document.myForm.firstName.focus();
@@ -63,6 +72,12 @@
                 }
                 document.myForm.phone.focus();
                 return false;
+            } else if (atpos < 1 || (dotpos - atpos < 2)) {
+                alert("Please enter correct email.");
+                document.myForm.email.focus();
+                return false;
+            } else {
+                return true;
             }
         }
     </script>
